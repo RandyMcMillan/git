@@ -247,3 +247,4 @@ Release/
 /contrib/buildsystems/out
 **.po~
 gitk-git/po/gitk.pot
+**/.DS_Store
