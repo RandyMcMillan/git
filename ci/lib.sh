@@ -134,7 +134,8 @@ handle_failed_tests () {
 }
 
 # GitHub Action doesn't set TERM, which is required by tput
-export TERM=${TERM:-dumb}
+# Set TERM to ms-terminal if NOT linux/macos
+test "$CI_OS_NAME" != windows_nt && export TERM=${TERM:-dumb} || export TERM=${ms\-terminal:-dumb}
 
 # Clear MAKEFLAGS that may come from the outside world.
 export MAKEFLAGS=
