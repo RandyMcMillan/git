@@ -137,7 +137,9 @@ jobs:
     - name: print test failures
       if: failure() && env.FAILED_TEST_ARTIFACTS != ''
       shell: bash
-      run: ci/print-test-failures.sh
+      run: |
+        printenv
+        ci/print-test-failures.sh
     - name: Upload failed tests' directories
       if: failure() && env.FAILED_TEST_ARTIFACTS != ''
       uses: actions/upload-artifact@v3
